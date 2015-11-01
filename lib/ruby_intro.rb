@@ -75,4 +75,16 @@ end
 
 class BookInStock
 # YOUR CODE HERE
+  attr_accessor :isbn
+  attr_accessor  :price
+  def initialize(isbn, price)
+    if isbn.empty? or price<=0
+       raise ArgumentError.new("incorrect ISBN format")
+    end
+    @isbn = isbn
+    @price = price
+  end
+  def price_as_string
+     return "$#{'%.02f' % price}"
+  end
 end
